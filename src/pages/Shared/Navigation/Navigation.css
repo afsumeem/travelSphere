@@ -46,9 +46,13 @@ color: black;
 
 .dropdown-menu-items{
     border-bottom: 1px solid #ff7c5b;
-    color: #ff7c5b;
+    color: #ff7c5b !important;
 }
+.chngbg{
+    background-color: white !important;
+}
+
 .chngbg:hover{
-    background-color: #ff7c5b;
-    color: rgb(255, 255, 255);
+    background-color: #ff7c5b !important;
+    color: rgb(0, 0, 0) !important;
 }

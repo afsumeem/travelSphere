@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
-import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import './Navigation.css';
 import { AiOutlineUser } from "react-icons/ai";
+import { FiLogOut } from "react-icons/fi";
+
+import useAuth from '../../hooks/useAuth';
 
 const usersIcon = <AiOutlineUser />
 
 const Navigation = () => {
+    const { user, logOut } = useAuth();
     const [colorChange, setColorchange] = useState(false);
     const changeNavbarColor = () => {
         if (window.scrollY >= 80) {
@@ -37,11 +41,22 @@ const Navigation = () => {
 
 
                     <NavDropdown title={usersIcon} className=' user-btn ms-auto rounded-circle' variant="none " >
-                        <NavLink to="/login" className="text-decoration-none">
-                            <NavDropdown.Item className="dropdown-menu-items main-font-color chngbg">Login</NavDropdown.Item>
-                        </NavLink>
+                        {
+                            user?.email ?
+                                <NavDropdown.Item className="main-font-color dropdown-menu-items bg-none fw-bolder"><AiOutlineUser /> {user.displayName}</NavDropdown.Item>
 
-                        <NavDropdown.Item href="#action/3.1" className="main-font-color chngbg">Login</NavDropdown.Item>
+                                :
+                                <NavDropdown.Item as={NavLink} to="/login" className="main-font-color chngbg dropdown-menu-items">Login</NavDropdown.Item>
+                        }
+
+                        {
+                            user?.email ?
+                                <NavDropdown.Item as={NavLink} to="/home" onClick={logOut} className="main-font-color chngbg dropdown-menu-items"><FiLogOut /> Logout</NavDropdown.Item>
+
+                                :
+                                <NavDropdown.Item as={NavLink} to="/register" className="main-font-color chngbg dropdown-menu-items">Register</NavDropdown.Item>
+                        }
+
                     </NavDropdown>
 
                 </Navbar.Collapse>
