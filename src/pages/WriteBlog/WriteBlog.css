@@ -10,8 +10,5 @@
 
 .feedback-form{
    width: 60%;
-}
-
-.feedback-form p{
-    color: rgb(70, 70, 70);
+   height: 100vh
 }
