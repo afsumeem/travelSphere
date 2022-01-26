@@ -126,19 +126,19 @@ const useFirebase = () => {
 
     //save user to database
 
-    // const saveUser = (name, email, method) => {
+    const saveUser = (name, email, method) => {
 
-    //     const users = { name: name, email: email };
+        const users = { name: name, email: email };
 
-    //     fetch('https://stormy-woodland-90777.herokuapp.com/colorCastleUsers', {
-    //         method: method,
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(users)
-    //     })
-    //         .then()
-    // }
+        fetch('http://localhost:5000/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(users)
+        })
+            .then()
+    }
 
     // check admin
 
@@ -169,7 +169,7 @@ const useFirebase = () => {
         signInUsingGoogle,
         isLoading,
         logOut,
-        // saveUser,
+        saveUser,
         admin
     }
 };
