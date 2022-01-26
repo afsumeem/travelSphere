@@ -1,14 +1,31 @@
 import axios from 'axios';
 import React from 'react';
+import { Col, Collapse, Container, Form, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../hooks/useAuth';
+import "./WriteBlog.css";
+import { useStars } from "stars-rating-react-hooks";
+
 
 const fileInput = React.createRef();
 
 const WriteBlog = () => {
+    const { user } = useAuth();
+    const { register, handleSubmit, reset, setValue, formState: { errors } } = useForm();
 
+    const config = {
+        totalStars: 5,
+        initialSelectedValue: 2,
+        renderFull: '★',
+        renderEmpty: '☆',
+    };
 
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const {
+        stars,
+        getStarProps,
+        getStarWrapperProps
+    } = useStars(config);
 
     // handle submit button 
     const onSubmit = data => {
@@ -40,40 +57,91 @@ const WriteBlog = () => {
 
 
     return (
-        <div className="product-form-container">
+        <div className='form-container'>
 
-            {/* add brand title */}
-            <h2 className=" pt-5 text-white text-uppercase">Share Your Experience</h2>
-            <div className="d-flex justify-content-center">
+            <Container className='w-75 d-block m-auto bg-white p-5'>
+                <h1 className="text-uppercase">Share Your Experience</h1>
+                <p>Travel businesses highly depend upon what tourists think about their holiday. Please do not hesitate to give feedback.</p>
+
+                <Form className="feedback-form" onSubmit={handleSubmit(onSubmit)}>
+                    <Row>
+                        <Col>
+                            <label className="" for="name">Your Name</label><br />
+                            <input className="w-75 p-2" name="name" defaultValue={user.displayName} {...register("name")} />
+                            <br />
+                            <label className="" for="address">Your Address</label><br />
+                            <input className="w-75 p-2" placeholder="Address"{...register("address", { required: true })} /> <br />
 
 
-                {/* Add brand form */}
-                <form className="pt-3 pb-5" onSubmit={handleSubmit(onSubmit)}>
-
-                    <input className=" m-2 w-50 px-4 py-2 opacity-75" placeholder="Brand Name" {...register("name", { required: true })} />
+                            <label className="" for="destination">Tour Destination</label><br />
+                            <input className="w-75 p-2" placeholder="Tour Destination"{...register("location", { required: true })} /> <br />
 
 
-                    {/* img upload */}
-                    <input className="m-2 w-50 px-4 py-2 bg-white opacity-75" name="image" accept='image/*' ref={fileInput} type="file" />
+                            <label className="" for="expense">Trip Cost</label><br />
+                            <input className="w-75 p-2" placeholder="Trip Cost"{...register("expense", { required: true })} /> <br />
+                        </Col>
+                        <Col>
+                            <label className="" for="email">Your Email</label><br />
+                            <input className="w-75 p-2" name="email" defaultValue={user.email} {...register("email", { required: true })} />
+
+                            {errors.email && <span className="text-danger">Please Enter Your Email</span>}
+                            <br />
+
+                            <label className="" for="contact">Contact No.</label><br />
+                            <input className="w-75 p-2" placeholder="+8801XXXXXXX"{...register("contact", { required: true })} /> <br />
 
 
-                    <input className="m-2 w-50 px-4 py-2 opacity-75" placeholder="Product Description"{...register("desc", { required: true })} />
-                    <br />
+                            <label className="" for="date">Trip Date</label><br />
+                            <input className="w-75 p-2" type="date" placeholder="Trip Departure Date"{...register("date", { required: true })} /> <br />
 
-                    <input className="m-2 w-50 px-4 py-2 opacity-75" placeholder="Price"{...register("price", { required: true })} />
-                    <br />
 
+                            <label className="" for="expense">Trip Cost</label><br />
+                            <input className="w-75 p-2" placeholder="Trip Cost"{...register("expense", { required: true })} /> <br /><br />
+                        </Col>
+                    </Row>
+                    <textarea className="w-75 d-block m-auto" placeholder="Any other suggestions for us?"{...register("comment", { required: true })} />
+
+                    <div className="col-md-6 text-start">
+                        <label className="form-label fs-3 fw-bold mt-3">Rating</label>
+                        <span
+                            {...getStarWrapperProps({
+                                style: {
+                                    cursor: 'pointer',
+                                    display: 'inline-block'
+                                },
+                            })}
+                        >
+                            {stars?.map((star, i) => (
+                                <span
+                                    key={i}
+                                    {...getStarProps(i, {
+                                        style: {
+                                            fontSize: '40px',
+                                            display: 'inline-block'
+                                        },
+                                        onClick: (event, ratedValue) => {
+                                            setValue("rating", ratedValue, {
+                                                shouldValidate: true,
+                                                shouldDirty: true
+                                            })
+                                        },
+                                    })}
+                                >
+                                    {star}
+                                </span>
+                            ))}
+                        </span>
+                    </div>
 
                     {/* submit button */}
-                    < input className="d-block mx-auto m-3 btn btn-primary w-50" type="submit" value="Add Brand" />
+                    <input className="" type="submit" value="Submit" />
 
+                    <NavLink to="/home" className="" > See all Blogs</NavLink>
 
-                    {/* explore all perfume brands button  */}
-                    < NavLink to="/explore" className=" text-decoration-none d-block mx-auto m-3 btn w-50 btn-outline-primary" > View All Brands</NavLink>
+                </Form>
+            </Container >
 
-                </form>
-            </div>
-        </div>
+        </div >
     );
 };
 

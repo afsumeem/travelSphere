@@ -33,9 +33,7 @@ const Navigation = () => {
 
                     <Nav className="ms-auto" defaultActiveKey="/home">
                         <NavLink to="/home" className="text-decoration-none mx-3 fs-5  menu-items">Home</NavLink>
-                        <NavLink to="/home" className="text-decoration-none mx-3 fs-5  menu-items">Home</NavLink>
-                        <NavLink to="/home" className="text-decoration-none mx-3 fs-5  menu-items">Home</NavLink>
-                        <NavLink to="/home" className="text-decoration-none mx-3 fs-5  menu-items">Home</NavLink>
+                        <NavLink to="/feedback" className="text-decoration-none mx-3 fs-5  menu-items">Travel Experience</NavLink>
                         <NavLink to="/home" className="text-decoration-none mx-3 fs-5  menu-items">Home</NavLink>
                     </Nav>
 
