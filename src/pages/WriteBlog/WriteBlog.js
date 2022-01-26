@@ -59,47 +59,45 @@ const WriteBlog = () => {
     return (
         <div className='form-container'>
 
-            <Container className='w-75 d-block m-auto bg-white p-5'>
-                <h1 className="text-uppercase">Share Your Experience</h1>
-                <p>Travel businesses highly depend upon what tourists think about their holiday. Please do not hesitate to give feedback.</p>
+            <Container className='feedback-form d-block m-auto bg-white p-4'>
+                <h4 className="text-uppercase mb-4">Share Your <span className='main-font-color'>Experience</span></h4>
 
-                <Form className="feedback-form" onSubmit={handleSubmit(onSubmit)}>
-                    <Row>
+                <Form className="" onSubmit={handleSubmit(onSubmit)}>
+                    <Row className='m-0 p-0'>
                         <Col>
-                            <label className="" for="name">Your Name</label><br />
-                            <input className="w-75 p-2" name="name" defaultValue={user.displayName} {...register("name")} />
+                            <label className="main-font-color fw-bold fs-5" htmlFor="name">Your Name</label><br />
+                            <input className="w-100 p-2 mb-2" name="name" defaultValue={user.displayName} {...register("name")} />
                             <br />
-                            <label className="" for="address">Your Address</label><br />
-                            <input className="w-75 p-2" placeholder="Address"{...register("address", { required: true })} /> <br />
 
+                            <label className="main-font-color fw-bold fs-5" htmlFor="address">Your Address</label><br />
 
-                            <label className="" for="destination">Tour Destination</label><br />
-                            <input className="w-75 p-2" placeholder="Tour Destination"{...register("location", { required: true })} /> <br />
+                            <input className="w-100 p-2 mb-2" placeholder="Address"{...register("address", { required: true })} /> <br />
 
+                            <label className="main-font-color fw-bold fs-5" htmlFor="destination">Tour Destination</label><br />
+                            <input className="w-100 p-2  mb-2" placeholder="Tour Destination"{...register("location", { required: true })} /> <br />
 
-                            <label className="" for="expense">Trip Cost</label><br />
-                            <input className="w-75 p-2" placeholder="Trip Cost"{...register("expense", { required: true })} /> <br />
+                            <label className="main-font-color fw-bold fs-5" htmlFor="expense">Trip Cost</label><br />
+                            <input className="w-100 p-2  mb-2" placeholder="Trip Cost"{...register("expense", { required: true })} /> <br />
                         </Col>
+
                         <Col>
-                            <label className="" for="email">Your Email</label><br />
-                            <input className="w-75 p-2" name="email" defaultValue={user.email} {...register("email", { required: true })} />
+                            <label className="main-font-color fw-bold fs-5" htmlFor="email">Your Email</label><br />
+                            <input className="w-100 p-2 mb-2" name="email" defaultValue={user.email} {...register("email", { required: true })} /> <br />
 
                             {errors.email && <span className="text-danger">Please Enter Your Email</span>}
-                            <br />
 
-                            <label className="" for="contact">Contact No.</label><br />
-                            <input className="w-75 p-2" placeholder="+8801XXXXXXX"{...register("contact", { required: true })} /> <br />
+                            <label className="main-font-color fw-bold fs-5" htmlFor="date">Trip Date</label><br />
+                            <input className="w-100 p-2 mb-2" type="date"{...register("date", { required: true })} /> <br />
 
+                            <label className="main-font-color fw-bold fs-5" htmlFor="time">Departure Time</label><br />
+                            <input className="w-100 p-2 mb-2" type="time" {...register("time", { required: true })} /> <br />
 
-                            <label className="" for="date">Trip Date</label><br />
-                            <input className="w-75 p-2" type="date" placeholder="Trip Departure Date"{...register("date", { required: true })} /> <br />
-
-
-                            <label className="" for="expense">Trip Cost</label><br />
-                            <input className="w-75 p-2" placeholder="Trip Cost"{...register("expense", { required: true })} /> <br /><br />
+                            <label className="main-font-color fw-bold fs-5">Upload Image *</label>
+                            <input type="file" className="form-control" accept='image/*' id="inputCity" ref={fileInput} required />
                         </Col>
                     </Row>
-                    <textarea className="w-75 d-block m-auto" placeholder="Any other suggestions for us?"{...register("comment", { required: true })} />
+
+                    <textarea className="w-100 d-block m-auto" placeholder="Any other suggestions for us?"{...register("comment", { required: true })} />
 
                     <div className="col-md-6 text-start">
                         <label className="form-label fs-3 fw-bold mt-3">Rating</label>

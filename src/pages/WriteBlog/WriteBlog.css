@@ -9,5 +9,9 @@
 }
 
 .feedback-form{
-   padding: 20px;
+   width: 60%;
+}
+
+.feedback-form p{
+    color: rgb(70, 70, 70);
 }
