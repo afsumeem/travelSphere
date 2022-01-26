@@ -37,7 +37,10 @@ const Navigation = () => {
 
 
                     <NavDropdown title={usersIcon} className=' user-btn ms-auto rounded-circle' variant="none " >
-                        <NavDropdown.Item href="#action/3.1" className="dropdown-menu-items main-font-color chngbg">Login</NavDropdown.Item>
+                        <NavLink to="/login" className="text-decoration-none">
+                            <NavDropdown.Item className="dropdown-menu-items main-font-color chngbg">Login</NavDropdown.Item>
+                        </NavLink>
+
                         <NavDropdown.Item href="#action/3.1" className="main-font-color chngbg">Login</NavDropdown.Item>
                     </NavDropdown>
 

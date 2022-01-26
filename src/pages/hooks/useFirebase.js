@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendEmailVerification, updateProfile, sendPasswordResetEmail } from "firebase/auth";
 import initializeFirebase from '../Firebase/firebase.init';
+
 initializeFirebase()
 
 
@@ -15,6 +16,7 @@ const useFirebase = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState("");
     const [admin, setAdmin] = useState(false);
+
 
 
     //create and sign in user with email and password
@@ -124,27 +126,27 @@ const useFirebase = () => {
 
     //save user to database
 
-    const saveUser = (name, email, method) => {
+    // const saveUser = (name, email, method) => {
 
-        const users = { name: name, email: email };
+    //     const users = { name: name, email: email };
 
-        fetch('https://ancient-headland-15558.herokuapp.com/users', {
-            method: method,
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(users)
-        })
-            .then()
-    }
+    //     fetch('https://stormy-woodland-90777.herokuapp.com/colorCastleUsers', {
+    //         method: method,
+    //         headers: {
+    //             'content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify(users)
+    //     })
+    //         .then()
+    // }
 
     // check admin
 
-    useEffect(() => {
-        fetch(`https://ancient-headland-15558.herokuapp.com/users/${user.email}`)
-            .then(res => res.json())
-            .then(data => setAdmin(data.admin))
-    }, [user.email])
+    // useEffect(() => {
+    //     fetch(`https://stormy-woodland-90777.herokuapp.com/colorCastleUsers/${user.email}`)
+    //         .then(res => res.json())
+    //         .then(data => setAdmin(data.admin))
+    // }, [user.email])
 
 
     //return all functions
@@ -167,7 +169,7 @@ const useFirebase = () => {
         signInUsingGoogle,
         isLoading,
         logOut,
-        saveUser,
+        // saveUser,
         admin
     }
 };
