@@ -1,5 +1,5 @@
 import React from 'react';
-import { Carousel } from 'react-bootstrap';
+import { Button, Carousel } from 'react-bootstrap';
 import './Banner.css';
 import banner1 from '../../../images/banner-1.jpg';
 import banner2 from '../../../images/banner-2.jpg';
@@ -24,10 +24,9 @@ const Banner = () => {
                         alt="First slide"
                     />
                     <Carousel.Caption className='carousel-content'>
-                        <h1
-
-                        >Make Your Tour Amazing With Us</h1>
+                        <h1>Make Your Tour <span className='main-font-color'>Amazing</span>  <br /> With Us</h1>
                         <p>We are here to make your tour comfort!</p>
+                        <Button variant="none" className='w-25 py-2 explore-button'>Explore</Button>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item >
@@ -37,13 +36,10 @@ const Banner = () => {
                         alt="Second slide"
                     />
 
-                    <Carousel.Caption className='carousel-content'
-
-                    >
-                        <h1
-
-                        >Second slide label</h1>
+                    <Carousel.Caption className='carousel-content'>
+                        <h1>Explore Your <br /><span className='main-font-color'>Travel</span></h1>
                         <p>We are here to make your tour comfort!</p>
+                        <Button variant="none" className='w-25 py-2 explore-button'>Explore</Button>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -54,8 +50,9 @@ const Banner = () => {
                     />
 
                     <Carousel.Caption className='carousel-content'>
-                        <h1>Third slide label</h1>
+                        <h1>Explore The World <br />With <span className='main-font-color'>Ease</span></h1>
                         <p>We are here to make your tour comfort!</p>
+                        <Button variant="none" className='w-25 py-2 explore-button'>Explore</Button>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -66,8 +63,9 @@ const Banner = () => {
                     />
 
                     <Carousel.Caption className='carousel-content'>
-                        <h1>Third slide label</h1>
+                        <h1>Make Your Tour <br /><span className='main-font-color'>Amazing</span> With Us</h1>
                         <p>We are here to make your tour comfort!</p>
+                        <Button variant="none" className='w-25 py-2 explore-button'>Explore</Button>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -78,8 +76,9 @@ const Banner = () => {
                     />
 
                     <Carousel.Caption className='carousel-content'>
-                        <h1>Travel Most Beautiful Place With Us</h1>
+                        <h1>Travel Most <span className='main-font-color'>Beautiful</span> <br />Place With Us</h1>
                         <p>We are here to make your tour comfort!</p>
+                        <Button variant="none" className='w-25 py-2 explore-button'>Explore</Button>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
