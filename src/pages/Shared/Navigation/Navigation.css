@@ -1,0 +1,54 @@
+.navbar1{
+    background-color: transparent;
+}
+  
+.navbar1.colorChange{
+    background-color: #000000;
+}
+
+.nav-logo{
+    font-size: 35px;
+    font-weight: 700;
+}
+.menu-items{
+color: white;
+font-weight: 600;
+}
+
+.menu-items:hover{
+color: #ff7c5b;
+}
+
+.user-btn{
+    border: 3px solid #ff7c5b;
+    height: 60px;
+    width: 60px;
+    transition: 0.5s;
+}
+
+.dropdown-toggle::after{
+display: none;
+}
+
+.nav-link{
+color: #ff7c5b;
+font-weight: 800;
+font-size: 20px;
+}
+
+.user-btn:hover{
+background-color: #ff7c5b;
+}
+
+.user-btn:hover .nav-link{
+color: black;
+}
+
+.dropdown-menu-items{
+    border-bottom: 1px solid #ff7c5b;
+    color: #ff7c5b;
+}
+.chngbg:hover{
+    background-color: #ff7c5b;
+    color: rgb(255, 255, 255);
+}
