@@ -24,7 +24,7 @@ export const SidebarData = [
     },
     {
         title: 'Add New Blog',
-        path: '/dashboard/addnewBlog',
+        path: '/dashboard/article',
         icon: <FaIcons.FaBloggerB />,
         cName: 'nav-text'
     }

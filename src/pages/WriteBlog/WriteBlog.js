@@ -62,7 +62,9 @@ const WriteBlog = () => {
     return (
         <>
             <Navigation />
-            <div className='form-container'>
+            <div className='form-container'
+                style={{ paddingTop: "120px" }}
+            >
 
                 <Container className='feedback-form d-block m-auto bg-white p-4'>
                     <h4 className="text-uppercase mb-2">Share Your <span className='main-font-color'>Experience</span></h4>
@@ -130,17 +132,15 @@ const WriteBlog = () => {
                                 <label className="main-font-color fw-bold fs-6" htmlFor="time">Departure Time</label><br />
                                 <input className="w-100 p-2 mb-2" type="time" {...register("time", { required: true })} /> <br />
 
-                                <label className="main-font-color fw-bold fs-6">Upload Image *</label>
-                                <input type="file" className="form-control" name="image" accept='image/*' id="inputCity" ref={fileInput} required />
+                                <label className="main-font-color fw-bold fs-6">Upload Image </label>
+                                <input type="file" className="form-control" name="image" accept='image/*' id="inputCity" ref={fileInput} />
                             </Col>
                         </Row>
                         <div className='mx-2'>
-                            <input className="w-100 p-2  mb-2" placeholder="Paste Your Image Link"{...register("pic", { required: true })} /> <br />
+                            <input className="w-100 p-2  mb-2" placeholder="Paste Your Image Link"{...register("pic")} /> <br />
 
                             <textarea className="w-100 d-block m-auto py-2 mt-3" placeholder="Any other suggestions for us?"{...register("comment", { required: true })} />
                         </div>
-
-
 
                         {/* submit button */}
                         <input as="NavLink" to="/home" className="w-100 py-2 explore-button border-0" type="submit" value="Submit" />
