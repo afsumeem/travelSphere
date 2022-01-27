@@ -5,6 +5,7 @@ import { IconContext } from 'react-icons';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import "./Dashboard.css"
+import Footer from '../../Shared/Footer/Footer';
 
 const Dashboard = () => {
     const [sidebar, setSidebar] = useState(false);
@@ -38,8 +39,10 @@ const Dashboard = () => {
                         })}
                     </ul>
                 </nav>
+
             </IconContext.Provider>
             <Outlet></Outlet>
+            <Footer />
         </>
     );
 };

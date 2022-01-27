@@ -18,7 +18,7 @@ const Blogs = () => {
             <h3 className=' text-uppercase text-start '> <span className="main-font-color"></span></h3>
 
             {
-                blogs.map(blog => <Blog
+                blogs.filter(singleBlog => singleBlog.status === "Approved").map(blog => <Blog
                     key={blog._id}
                     blog={blog}
                 ></Blog>)

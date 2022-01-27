@@ -10,6 +10,9 @@ import PrivateRoute from './pages/PrivateRoute/PrivateRoute';
 import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
 import MakeAdmin from './pages/Dashboard/MakeAdmin/MakeAdmin';
 import AllBlogs from './pages/Dashboard/AllBlogs/AllBlogs/AllBlogs';
+import AdminRoute from './pages/AdminRoute/AdminRoute';
+import DashboardHome from './pages/Dashboard/DashboardHome/DashboardHome';
+import WriteArticle from './pages/Dashboard/WriteArticle/WriteArticle';
 
 function App() {
   return (
@@ -18,12 +21,16 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='home' element={<Home />} />
         <Route path="feedback" element={<PrivateRoute><WriteBlog /></PrivateRoute>}></Route>
-        <Route path="/dashboard" element={<Dashboard />}>
 
-          <Route path="/dashboard/makeAdmin" element={<MakeAdmin />}></Route>
-          <Route path="/dashboard/Allblogs" element={<AllBlogs />}></Route>
+        <Route path="/dashboard" element={<AdminRoute><Dashboard /></AdminRoute>}>
+
+          <Route path="/dashboard" element={<AdminRoute><DashboardHome /></AdminRoute>}></Route>
+          <Route path="/dashboard/makeAdmin" element={<AdminRoute><MakeAdmin /></AdminRoute>}></Route>
+          <Route path="/dashboard/Allblogs" element={<AdminRoute><AllBlogs /></AdminRoute>}></Route>
+          <Route path="/dashboard/article" element={<AdminRoute><WriteArticle /></AdminRoute>}></Route>
 
         </Route>
+
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
 

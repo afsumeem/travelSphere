@@ -5,6 +5,8 @@ import { useForm } from 'react-hook-form';
 import useAuth from '../hooks/useAuth';
 import "./WriteBlog.css";
 import { useStars } from "stars-rating-react-hooks";
+import Navigation from '../Shared/Navigation/Navigation';
+import Footer from '../Shared/Footer/Footer';
 
 
 const fileInput = React.createRef();
@@ -58,91 +60,95 @@ const WriteBlog = () => {
 
 
     return (
-        <div className='form-container'>
+        <>
+            <Navigation />
+            <div className='form-container'>
 
-            <Container className='feedback-form d-block m-auto bg-white p-4'>
-                <h4 className="text-uppercase mb-2">Share Your <span className='main-font-color'>Experience</span></h4>
+                <Container className='feedback-form d-block m-auto bg-white p-4'>
+                    <h4 className="text-uppercase mb-2">Share Your <span className='main-font-color'>Experience</span></h4>
 
-                <Form className="" onSubmit={handleSubmit(onSubmit)}>
+                    <Form className="" onSubmit={handleSubmit(onSubmit)}>
 
-                    <div className="text-center  mb-2">
+                        <div className="text-center  mb-2">
 
-                        <span
-                            {...getStarWrapperProps({
-                                style: {
-                                    cursor: 'pointer',
-                                    display: 'inline-block'
-                                },
-                            })}
-                        >
-                            {stars?.map((star, i) => (
-                                <span
-                                    key={i}
-                                    {...getStarProps(i, {
-                                        style: {
-                                            fontSize: '35px',
-                                            color: "gold"
+                            <span
+                                {...getStarWrapperProps({
+                                    style: {
+                                        cursor: 'pointer',
+                                        display: 'inline-block'
+                                    },
+                                })}
+                            >
+                                {stars?.map((star, i) => (
+                                    <span
+                                        key={i}
+                                        {...getStarProps(i, {
+                                            style: {
+                                                fontSize: '35px',
+                                                color: "gold"
 
-                                        },
-                                        onClick: (event, ratedValue) => {
-                                            setValue("rating", ratedValue, {
-                                                shouldValidate: true,
-                                                shouldDirty: true
-                                            })
-                                        },
-                                    })}
-                                >
-                                    {star}
-                                </span>
-                            ))}
-                        </span>
-                    </div>
-                    <Row className='m-0 p-0'>
-                        <Col>
-                            <label className="main-font-color fw-bold fs-6" htmlFor="name">Your Name</label><br />
-                            <input className="w-100 p-2 mb-2" name="name" readOnly defaultValue={user.displayName} {...register("name")} />
-                            <br />
+                                            },
+                                            onClick: (event, ratedValue) => {
+                                                setValue("rating", ratedValue, {
+                                                    shouldValidate: true,
+                                                    shouldDirty: true
+                                                })
+                                            },
+                                        })}
+                                    >
+                                        {star}
+                                    </span>
+                                ))}
+                            </span>
+                        </div>
+                        <Row className='m-0 p-0'>
+                            <Col>
+                                <label className="main-font-color fw-bold fs-6" htmlFor="name">Your Name</label><br />
+                                <input className="w-100 p-2 mb-2" name="name" readOnly defaultValue={user.displayName} {...register("name")} />
+                                <br />
 
-                            <label className="main-font-color fw-bold fs-6" htmlFor="address">Your Address</label><br />
+                                <label className="main-font-color fw-bold fs-6" htmlFor="address">Your Address</label><br />
 
-                            <input className="w-100 p-2 mb-2" placeholder="Address"{...register("address", { required: true })} /> <br />
+                                <input className="w-100 p-2 mb-2" placeholder="Address"{...register("address", { required: true })} /> <br />
 
-                            <label className="main-font-color fw-bold fs-6" htmlFor="destination">Tour Destination</label><br />
-                            <input className="w-100 p-2  mb-2" placeholder="Tour Destination"{...register("location", { required: true })} /> <br />
+                                <label className="main-font-color fw-bold fs-6" htmlFor="destination">Tour Destination</label><br />
+                                <input className="w-100 p-2  mb-2" placeholder="Tour Destination"{...register("location", { required: true })} /> <br />
 
-                            <label className="main-font-color fw-bold fs-6" htmlFor="expense">Trip Cost</label><br />
-                            <input className="w-100 p-2  mb-2" placeholder="Trip Cost"{...register("expense", { required: true })} /> <br />
-                        </Col>
+                                <label className="main-font-color fw-bold fs-6" htmlFor="expense">Trip Cost</label><br />
+                                <input className="w-100 p-2  mb-2" placeholder="Trip Cost"{...register("expense", { required: true })} /> <br />
+                            </Col>
 
-                        <Col>
-                            <label className="main-font-color fw-bold fs-6" htmlFor="email">Your Email</label><br />
-                            <input className="w-100 p-2 mb-2" name="email" readOnly defaultValue={user.email} {...register("email")} /> <br />
+                            <Col>
+                                <label className="main-font-color fw-bold fs-6" htmlFor="email">Your Email</label><br />
+                                <input className="w-100 p-2 mb-2" name="email" readOnly defaultValue={user.email} {...register("email")} /> <br />
 
-                            {errors.email && <span className="text-danger">Please Enter Your Email</span>}
+                                {errors.email && <span className="text-danger">Please Enter Your Email</span>}
 
-                            <label className="main-font-color fw-bold fs-6" htmlFor="date">Trip Date</label><br />
-                            <input className="w-100 p-2 mb-2" type="date"{...register("date", { required: true })} /> <br />
+                                <label className="main-font-color fw-bold fs-6" htmlFor="date">Trip Date</label><br />
+                                <input className="w-100 p-2 mb-2" type="date"{...register("date", { required: true })} /> <br />
 
-                            <label className="main-font-color fw-bold fs-6" htmlFor="time">Departure Time</label><br />
-                            <input className="w-100 p-2 mb-2" type="time" {...register("time", { required: true })} /> <br />
+                                <label className="main-font-color fw-bold fs-6" htmlFor="time">Departure Time</label><br />
+                                <input className="w-100 p-2 mb-2" type="time" {...register("time", { required: true })} /> <br />
 
-                            <label className="main-font-color fw-bold fs-6">Upload Image *</label>
-                            <input type="file" className="form-control" name="image" accept='image/*' id="inputCity" ref={fileInput} required />
-                        </Col>
-                    </Row>
+                                <label className="main-font-color fw-bold fs-6">Upload Image *</label>
+                                <input type="file" className="form-control" name="image" accept='image/*' id="inputCity" ref={fileInput} required />
+                            </Col>
+                        </Row>
+                        <div className='mx-2'>
+                            <input className="w-100 p-2  mb-2" placeholder="Paste Your Image Link"{...register("pic", { required: true })} /> <br />
 
-                    <textarea className="w-100 d-block m-auto py-2 mt-3" placeholder="Any other suggestions for us?"{...register("comment", { required: true })} />
-
-
-                    {/* submit button */}
-                    <input as="NavLink" to="/home" className="w-100 py-2 explore-button border-0" type="submit" value="Submit" />
-
+                            <textarea className="w-100 d-block m-auto py-2 mt-3" placeholder="Any other suggestions for us?"{...register("comment", { required: true })} />
+                        </div>
 
 
-                </Form>
-            </Container >
 
-        </div >
+                        {/* submit button */}
+                        <input as="NavLink" to="/home" className="w-100 py-2 explore-button border-0" type="submit" value="Submit" />
+                    </Form>
+                </Container >
+            </div >
+            <Footer />
+        </>
     );
 };
 
