@@ -10,7 +10,8 @@ import useAuth from '../../hooks/useAuth';
 const usersIcon = <AiOutlineUser />
 
 const Navigation = () => {
-    const { user, logOut } = useAuth();
+    const { user, logOut, admin } = useAuth();
+
     const [colorChange, setColorchange] = useState(false);
     const changeNavbarColor = () => {
         if (window.scrollY >= 80) {
@@ -34,7 +35,12 @@ const Navigation = () => {
                     <Nav className="ms-auto" defaultActiveKey="/home">
                         <NavLink to="/home" className="text-decoration-none mx-3 fs-5  menu-items">Home</NavLink>
                         <NavLink to="/feedback" className="text-decoration-none mx-3 fs-5  menu-items">Travel Experience</NavLink>
-                        <NavLink to="/home" className="text-decoration-none mx-3 fs-5  menu-items">Home</NavLink>
+                        {
+                            admin &&
+
+                            <NavLink to="/dashboard" className="text-decoration-none mx-3 fs-5  menu-items">Dashboard</NavLink>
+                        }
+
                     </Nav>
 
 

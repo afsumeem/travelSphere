@@ -142,11 +142,11 @@ const useFirebase = () => {
 
     // check admin
 
-    // useEffect(() => {
-    //     fetch(`https://stormy-woodland-90777.herokuapp.com/colorCastleUsers/${user.email}`)
-    //         .then(res => res.json())
-    //         .then(data => setAdmin(data.admin))
-    // }, [user.email])
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
 
 
     //return all functions

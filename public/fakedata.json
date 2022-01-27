@@ -1,0 +1,26 @@
+[
+  {
+    "picture1": "https://i.ibb.co/SPW8bvS/Historical-Museum-St-Basil-Cathedral-Red-Square-in-Moscow-View-from-top-of-the-Ritz-Carlton-hotel.jpg",
+    "picture2": "https://i.ibb.co/TR6M4L1/moscow2.jpg",
+    "name": "Moscow Red City Land",
+    "location": "Moscow, Russia",
+    "desc": "Moscow’s documented history reaches back to the 12th century, though there is evidence of prehistoric habitation of the site. These seven paintings are just a small sampling of the city’s equally rich and varied cultural heritage.",
+    "cost": "1500"
+  },
+  {
+    "picture1": "https://i.ibb.co/vQsC50S/turkey.png",
+    "picture2": "https://i.ibb.co/PjrhDh5/turkey.jpg",
+    "name": "Grand Bazaar in Istanbul",
+    "location": "Istanbul, Turkey",
+    "desc": "Turkish Grand Bazaar… It is where the historical texture comes together with magnificent tastes and the smell of Turkish coffee… The Grand Bazaar is one of the oldest and largest covered bazaars in the world",
+    "cost": "1200"
+  },
+  {
+    "picture1": "https://i.ibb.co/x72H8zr/swiss.jpg",
+    "picture2": "https://i.ibb.co/YQH1p8c/swiss1.jpg",
+    "name": "Swiss Alps Trip",
+    "location": "Austria, Switzerland",
+    "desc": "Zermatt is truly one of a kind. Spreading between Switzerland and Italy, its centre is classic alpine, with wooden chalets and a unique car-free centre. It is well known for coming alive as the sun sets with a buzzing nightlife and friendly bars to enjoy until the early hours.",
+    "cost": "2000"
+  }
+]
