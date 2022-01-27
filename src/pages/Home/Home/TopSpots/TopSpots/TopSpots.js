@@ -14,7 +14,7 @@ const TopSpots = () => {
             .then(data => setTopSpots(data))
     }, []);
     return (
-        <Row className='px-0'>
+        <Row className='m-0 p-0'>
             <h3 className=' text-uppercase text-center '>Top Rated <span className="main-font-color">Spots</span></h3>
 
             {

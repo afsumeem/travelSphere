@@ -24,6 +24,7 @@ const TopSpot = ({ spot }) => {
                     </Button>
                 </div>
             </div>
+
             <Modal
                 show={show}
                 onHide={handleClose}
@@ -66,7 +67,6 @@ const TopSpot = ({ spot }) => {
                         </Col>
                     </Row>
                 </Container>
-
             </Modal>
         </Col >
 
