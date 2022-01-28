@@ -12,10 +12,10 @@ const Blogs = () => {
     // fetch blogs from api
 
     useEffect(() => {
-        fetch('https://mighty-waters-53050.herokuapp.com/blogs?currentPage=${currentPage}&&perPageBlog=${perPageBlog}')
+        fetch(`https://mighty-waters-53050.herokuapp.com/blogs?currentPage=${currentPage}&&perPageBlog=${perPageBlog}`)
             .then(res => res.json())
             .then(data => {
-                setBlogs(data.blog)
+                setBlogs(data)
                 // pagination
                 const totalPage = data.count;
                 const pageNumber = Math.ceil(totalPage / perPageBlog);
@@ -23,8 +23,10 @@ const Blogs = () => {
             })
     }, [currentPage]);
 
+
     return (
         <Row className='px-0'>
+
             <h3 className=' text-uppercase text-start '> <span className="main-font-color"></span></h3>
 
             {

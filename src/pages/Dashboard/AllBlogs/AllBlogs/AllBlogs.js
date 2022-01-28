@@ -11,8 +11,9 @@ const AllBlogs = () => {
     useEffect(() => {
         fetch('https://mighty-waters-53050.herokuapp.com/blogs')
             .then(res => res.json())
-            .then(data => setManageAllBlogs(data.blog))
+            .then(data => console.log(data.blog))
     }, []);
+
     return (
         <Container>
             <div className="table-responsive">
