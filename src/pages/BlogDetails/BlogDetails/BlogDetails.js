@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Breadcrumb, Col, Container, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import StarRatings from 'react-star-ratings';
+import useAuth from '../../hooks/useAuth';
 import Footer from '../../Shared/Footer/Footer';
 import Navigation from '../../Shared/Navigation/Navigation';
 import './BloDetails.css'
 
 const BlogDetails = () => {
+    const { user, admin } = useAuth();
 
     const { id } = useParams();
     const [details, setDetails] = useState([]);
@@ -45,7 +47,10 @@ const BlogDetails = () => {
 
                         <h2 class="main-font-color fw-bold">{details.title}</h2>
 
-                        <p className='my-3' style={{ color: "gray", fontStyle: "italic" }}>by: {details.name}</p>
+                        {
+                            admin ? <p className='my-3' style={{ color: "gray", fontStyle: "italic" }}>by: Admin</p>
+                                : <p className='my-3' style={{ color: "gray", fontStyle: "italic" }}>by: {details.name}</p>
+                        }
 
                         <br /><br />
                         <h2>{details.location}</h2>

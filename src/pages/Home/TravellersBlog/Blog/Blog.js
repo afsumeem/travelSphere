@@ -2,11 +2,13 @@ import React from 'react';
 import { Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import StarRatings from 'react-star-ratings';
+import useAuth from '../../../hooks/useAuth';
 
 const Blog = ({ blog }) => {
+    const { user, admin } = useAuth()
     const { _id, name, location, title, comment, date, rating, image, image2 } = blog;
     return (
-        <Col md={4} lg={3} sm={6} xs={12} className='py-3'>
+        <Col md={6} lg={4} sm={6} xs={12} className='py-5 '>
             <div className='overlay'>
                 <div className='all-spot-section'>
                     {
@@ -20,7 +22,7 @@ const Blog = ({ blog }) => {
                         <h3>{location}</h3>
                         <h5>{date}</h5>
                     </div>
-                    <Button variant="none" className='view-details-spots'>
+                    <Button as={Link} to={`/blogs/${_id}`} variant="none" className='view-details-spots'>
                         View Details
                     </Button>
 
@@ -37,8 +39,13 @@ const Blog = ({ blog }) => {
                     />
                 </div>
                 <h5>{title}</h5>
-                <p className='my-3' style={{ color: "gray", fontStyle: "italic" }}>by: {name}</p>
-                <p>{comment.slice(0, 150)}</p>
+                {
+                    admin ? <p className='my-3' style={{ color: "gray", fontStyle: "italic" }}>by: Admin</p> : <p className='my-3' style={{ color: "gray", fontStyle: "italic" }}>by: {name}</p>
+
+                }
+
+
+                <p>{comment.slice(0, 100)}</p>
 
                 <Link to={`/blogs/${_id}`}>
                     Continue Reading
