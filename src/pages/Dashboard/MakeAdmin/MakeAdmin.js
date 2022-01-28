@@ -23,7 +23,7 @@ const MakeAdmin = () => {
                 console.log(data);
                 if (data.modifiedCount) {
                     setSuccess(true);
-                    window.location.reload()
+                    // window.location.reload()
                 }
             })
         e.preventDefault();

@@ -55,14 +55,12 @@ const WriteArticle = () => {
     };
     return (
         <div
-            style={{ "backgroundColor": "#f5b3a2" }}
-        >
+            style={{ "backgroundColor": "#f5b3a2" }} s>
 
             <Container className='feedback-form d-block m-auto bg-white p-4'>
                 <h4 className="text-uppercase mb-2">Share Your <span className='main-font-color'>Experience</span></h4>
 
                 <Form className="" onSubmit={handleSubmit(onSubmit)}>
-
                     <div className="text-center  mb-2">
 
                         <span
@@ -125,7 +123,7 @@ const WriteArticle = () => {
                             <input className="w-100 p-2 mb-2" type="time" {...register("time", { required: true })} /> <br />
 
                             <label className="main-font-color fw-bold fs-6">Upload Image</label>
-                            <input type="file" className="form-control" name="image" accept='image/*' id="inputCity" ref={fileInput} />
+                            <input type="file" className="form-control" name="image" accept='image/*' id="inputCity" ref={fileInput} required />
                         </Col>
                     </Row>
                     <div className='mx-2'>

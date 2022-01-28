@@ -11,7 +11,7 @@ const AllBlogs = () => {
     useEffect(() => {
         fetch('https://mighty-waters-53050.herokuapp.com/blogs')
             .then(res => res.json())
-            .then(data => console.log(data.blog))
+            .then(data => setManageAllBlogs(data.blog))
     }, []);
 
     return (

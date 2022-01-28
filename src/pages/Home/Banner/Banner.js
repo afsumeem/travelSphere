@@ -14,7 +14,7 @@ const Banner = () => {
         <div className='banner'>
 
             <Carousel fade controls={false}
-                style={{ "marginTop": "-10px" }}
+                style={{ "marginTop": "-100px" }}
             >
 
                 <Carousel.Item >

@@ -15,7 +15,7 @@ const Blogs = () => {
         fetch(`https://mighty-waters-53050.herokuapp.com/blogs?currentPage=${currentPage}&&perPageBlog=${perPageBlog}`)
             .then(res => res.json())
             .then(data => {
-                setBlogs(data)
+                setBlogs(data.blog)
                 // pagination
                 const totalPage = data.count;
                 const pageNumber = Math.ceil(totalPage / perPageBlog);
@@ -25,9 +25,9 @@ const Blogs = () => {
 
 
     return (
-        <Row className='px-0'>
+        <Row className='ps-5'>
 
-            <h3 className=' text-uppercase text-start '> <span className="main-font-color"></span></h3>
+            <h3 className='text-uppercase text-start '>Recent <span className="main-font-color">Blogs</span></h3>
 
             {
                 blogs.filter(singleBlog => singleBlog.status === "Approved").map(blog => <Blog
@@ -35,6 +35,7 @@ const Blogs = () => {
                     blog={blog}
                 ></Blog>)
             }
+
             <div className="pagination">
                 {
                     [...Array(pages).keys()]

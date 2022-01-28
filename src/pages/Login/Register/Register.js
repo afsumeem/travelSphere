@@ -41,6 +41,7 @@ const Register = () => {
 
                                     //save user to database
                                     saveUser(user.displayName, user.email, 'POST');
+                                    alert("Registered Successfully")
                                 })
                                 .catch((error) => {
                                     setError(error.message)

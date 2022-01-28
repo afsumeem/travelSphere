@@ -37,8 +37,8 @@ const useFirebase = () => {
 
     const handleRegistration = () => {
 
-        if (password.length > 6) {
-            setError("password should have 6 character")
+        if (password.length > 8) {
+            setError("password should have 8 character")
             return;
         }
 

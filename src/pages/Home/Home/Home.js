@@ -3,7 +3,6 @@ import { Col, Row } from 'react-bootstrap';
 import Footer from '../../Shared/Footer/Footer';
 import Navigation from '../../Shared/Navigation/Navigation';
 import Banner from '../Banner/Banner';
-
 import Blogs from '../TravellersBlog/Blogs/Blogs';
 import TopSpots from './TopSpots/TopSpots/TopSpots';
 
@@ -13,11 +12,11 @@ const Home = () => {
             <Navigation />
             <Banner />
             <Row gx="5" className='mt-5'>
-                <Col md={8}>
+                <Col md={8} sm={12}>
                     <Blogs />
                 </Col>
 
-                <Col md={4} className='border-start'>
+                <Col md={4} sm={12} className='border-start'>
                     <TopSpots />
                 </Col>
             </Row>

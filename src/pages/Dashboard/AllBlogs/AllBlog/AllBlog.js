@@ -41,7 +41,7 @@ const AllBlog = ({ allBlogs }) => {
             .then(data => {
                 if (data.modifiedCount > 0) {
                     alert('Order approved');
-                    // window.location.reload()
+                    window.location.reload()
                 }
             })
     };

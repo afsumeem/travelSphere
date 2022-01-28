@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Breadcrumb, Col, Container, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
+import StarRatings from 'react-star-ratings';
 import Footer from '../../Shared/Footer/Footer';
 import Navigation from '../../Shared/Navigation/Navigation';
 import './BloDetails.css'
@@ -20,7 +21,7 @@ const BlogDetails = () => {
     return (
         <>
             <Navigation />
-            <div style={{ "marginTop": "-50px" }} className='blog-detail-banner'>
+            <div style={{ "marginTop": "-150px" }} className='blog-detail-banner'>
                 {
                     details.image2 ?
                         <img src={details.image2} alt="" className='img-fluid d-block w-100 opacity-25'
@@ -41,21 +42,38 @@ const BlogDetails = () => {
 
                 <Row className='my-5'>
                     <Col md={6} className='mb-5'>
-                        <h2>{details.name}</h2>
-                        <h2>{details.title}</h2>
+
+                        <h2 class="main-font-color fw-bold">{details.title}</h2>
+
+                        <p className='my-3' style={{ color: "gray", fontStyle: "italic" }}>by: {details.name}</p>
+
+                        <br /><br />
                         <h2>{details.location}</h2>
-                        <h2>{details.expense}</h2>
-                        <h2>{details.email}</h2>
-                        <h2>{details.date}</h2>
-                        <h2>{details.time}</h2>
-                        <h2>{details.rating}</h2>
-                        <h2>{details.status}</h2>
-                        <h2>{details.comment}</h2>
+                        <p>{details.comment}</p>
+                        <br /><br />
+                        <h5>Total Cost: <span className="fs-3">${details.expense}</span></h5>
+                        <h5>Departure Date: {details.date}</h5>
+                        <h5>Time: {details.time}a.m</h5>
+
+                        <div className='text-center'>
+                            <StarRatings
+                                rating={parseFloat(details.rating)}
+                                starDimension="22px"
+                                starSpacing="5px"
+                                starRatedColor="#ff7c5b"
+                                starEmptyColor='gray'
+                            />
+                        </div>
                     </Col>
 
                     <Col md={6}>
-
-                        <img src={`data:image/jpeg;base64,${details.image}`} alt="" className='img-fluid d-block w-100' />
+                        {
+                            details.image ?
+                                <img src={`data:image/jpeg;base64,${details.image}`} alt="" className='img-fluid d-block w-100' />
+                                :
+                                <img src={details.image2} alt="" className='img-fluid d-block w-100'
+                                    style={{ "height": "70vh" }} />
+                        }
 
                     </Col>
                 </Row>

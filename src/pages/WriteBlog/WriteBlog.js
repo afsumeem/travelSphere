@@ -137,7 +137,7 @@ const WriteBlog = () => {
                             </Col>
                         </Row>
                         <div className='mx-2'>
-                            <input className="w-100 p-2  mb-2" placeholder="Paste Your Image Link"{...register("pic")} /> <br />
+                            <input className="w-100 p-2  mb-2" placeholder="Paste Your Image Link"{...register("image2")} /> <br />
 
                             <textarea className="w-100 d-block m-auto py-2 mt-3" placeholder="Any other suggestions for us?"{...register("comment", { required: true })} />
                         </div>

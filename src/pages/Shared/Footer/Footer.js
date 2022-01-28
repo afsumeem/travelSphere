@@ -7,9 +7,7 @@ import './Footer.css'
 
 const Footer = () => {
     return (
-        <div style={{
-            "backgroundColor": "black", 'minHeight': '250px'
-        }}>
+        <div className='main-footer'>
 
             <Container>
                 < Row >

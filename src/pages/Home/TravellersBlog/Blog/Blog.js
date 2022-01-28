@@ -6,7 +6,7 @@ import StarRatings from 'react-star-ratings';
 const Blog = ({ blog }) => {
     const { _id, name, location, title, comment, date, rating, image, image2 } = blog;
     return (
-        <Col md={3} lg={4} className='py-3'>
+        <Col md={4} lg={3} sm={6} xs={12} className='py-3'>
             <div className='overlay'>
                 <div className='all-spot-section'>
                     {
@@ -27,12 +27,12 @@ const Blog = ({ blog }) => {
                 </div>
             </div>
             <div>
-                <div className='ps-5'>
+                <div className='text-center'>
                     <StarRatings
                         rating={parseFloat(rating)}
                         starDimension="22px"
                         starSpacing="5px"
-                        starRatedColor="#c13f22"
+                        starRatedColor="#ff7c5b"
                         starEmptyColor='gray'
                     />
                 </div>
