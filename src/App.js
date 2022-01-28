@@ -13,6 +13,7 @@ import AllBlogs from './pages/Dashboard/AllBlogs/AllBlogs/AllBlogs';
 import AdminRoute from './pages/AdminRoute/AdminRoute';
 import DashboardHome from './pages/Dashboard/DashboardHome/DashboardHome';
 import WriteArticle from './pages/Dashboard/WriteArticle/WriteArticle';
+import BlogDetails from './pages/BlogDetails/BlogDetails/BlogDetails';
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='home' element={<Home />} />
         <Route path="feedback" element={<PrivateRoute><WriteBlog /></PrivateRoute>}></Route>
+        <Route path="blogs/:id" element={<PrivateRoute><BlogDetails /></PrivateRoute>}></Route>
+
 
         <Route path="/dashboard" element={<AdminRoute><Dashboard /></AdminRoute>}>
 

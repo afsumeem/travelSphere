@@ -12,7 +12,7 @@ const AllBlog = ({ allBlogs }) => {
 
     // handle delete order from api
     const handleDeleteBlog = id => {
-        const url = `http://localhost:5000/blogs/${id}`
+        const url = `https://mighty-waters-53050.herokuapp.com/blogs/${id}`
 
         fetch(url, {
             method: 'DELETE'
@@ -31,7 +31,7 @@ const AllBlog = ({ allBlogs }) => {
     const handleUpdateStatus = () => {
         const updated = { status: 'Approved' }
 
-        const url = `http://localhost:5000/blogs/${_id}`
+        const url = `https://mighty-waters-53050.herokuapp.com/blogs/${_id}`
         fetch(url, {
             method: 'PUT',
             headers: { 'content-type': 'application/json' },

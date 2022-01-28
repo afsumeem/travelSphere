@@ -1,20 +1,19 @@
 import React from 'react';
 import { Col, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import StarRatings from 'react-star-ratings';
 
 const Blog = ({ blog }) => {
-    const { name, address, location, comment, expense, email, date, time, rating, image, pic2 } = blog;
+    const { _id, name, location, title, comment, date, rating, image, image2 } = blog;
     return (
         <Col md={3} lg={4} className='py-3'>
             <div className='overlay'>
                 <div className='all-spot-section'>
                     {
-                        image &&
-                        <img src={`data:image/jpeg;base64,${image}`} alt="" className='img-fluid d-block' />
-                    }
-                    {
-                        pic2 &&
-                        <img src={pic2} alt="" className='img-fluid d-block' />
+                        image2 ?
+                            <img src={image2} alt="" className='img-fluid d-block' />
+                            :
+                            <img src={`data:image/jpeg;base64,${image}`} alt="" className='img-fluid d-block' />
                     }
 
                     <div className='bg-opacity-75 bg-dark card-div w-100 py-2'>
@@ -37,10 +36,13 @@ const Blog = ({ blog }) => {
                         starEmptyColor='gray'
                     />
                 </div>
+                <h5>{title}</h5>
                 <p className='my-3' style={{ color: "gray", fontStyle: "italic" }}>by: {name}</p>
-                <p>{comment.slice(0, 150)} <span>
-                    <a href="#">See More</a></span></p>
+                <p>{comment.slice(0, 150)}</p>
 
+                <Link to={`/blogs/${_id}`}>
+                    Continue Reading
+                </Link>
             </div>
         </Col>
     );

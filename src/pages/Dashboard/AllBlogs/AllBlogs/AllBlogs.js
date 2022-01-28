@@ -9,9 +9,9 @@ const AllBlogs = () => {
     // fetch all blogs from api
 
     useEffect(() => {
-        fetch('http://localhost:5000/blogs')
+        fetch('https://mighty-waters-53050.herokuapp.com/blogs')
             .then(res => res.json())
-            .then(data => setManageAllBlogs(data))
+            .then(data => setManageAllBlogs(data.blog))
     }, []);
     return (
         <Container>

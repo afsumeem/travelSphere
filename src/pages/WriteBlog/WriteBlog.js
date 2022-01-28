@@ -43,7 +43,7 @@ const WriteBlog = () => {
         formData.append('image', image);
         formData.append('status', status)
 
-        axios.post('http://localhost:5000/blogs', formData, {
+        axios.post('https://mighty-waters-53050.herokuapp.com/blogs', formData, {
             headers: {
                 'accept': 'application/json',
                 'Accept-Language': 'en-US,en;q=0.8',
@@ -109,9 +109,9 @@ const WriteBlog = () => {
                                 <input className="w-100 p-2 mb-2" name="name" readOnly defaultValue={user.displayName} {...register("name")} />
                                 <br />
 
-                                <label className="main-font-color fw-bold fs-6" htmlFor="address">Your Address</label><br />
+                                <label className="main-font-color fw-bold fs-6" htmlFor="title">Blog Title</label><br />
 
-                                <input className="w-100 p-2 mb-2" placeholder="Address"{...register("address", { required: true })} /> <br />
+                                <input className="w-100 p-2 mb-2" placeholder="Blog Title"{...register("title", { required: true })} /> <br />
 
                                 <label className="main-font-color fw-bold fs-6" htmlFor="destination">Tour Destination</label><br />
                                 <input className="w-100 p-2  mb-2" placeholder="Tour Destination"{...register("location", { required: true })} /> <br />
@@ -133,7 +133,7 @@ const WriteBlog = () => {
                                 <input className="w-100 p-2 mb-2" type="time" {...register("time", { required: true })} /> <br />
 
                                 <label className="main-font-color fw-bold fs-6">Upload Image </label>
-                                <input type="file" className="form-control" name="image" accept='image/*' id="inputCity" ref={fileInput} />
+                                <input type="file" className="form-control" name="image" accept='image/*' id="inputCity" ref={fileInput} required />
                             </Col>
                         </Row>
                         <div className='mx-2'>
