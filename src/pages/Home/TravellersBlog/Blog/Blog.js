@@ -2,10 +2,8 @@ import React from 'react';
 import { Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import StarRatings from 'react-star-ratings';
-import useAuth from '../../../hooks/useAuth';
 
 const Blog = ({ blog }) => {
-    const { user, admin } = useAuth()
     const { _id, name, location, title, comment, date, rating, image, image2 } = blog;
     return (
         <Col md={6} lg={4} sm={6} xs={12} className='py-5 '>
@@ -39,12 +37,7 @@ const Blog = ({ blog }) => {
                     />
                 </div>
                 <h5>{title}</h5>
-                {
-                    admin ? <p className='my-3' style={{ color: "gray", fontStyle: "italic" }}>by: Admin</p> : <p className='my-3' style={{ color: "gray", fontStyle: "italic" }}>by: {name}</p>
-
-                }
-
-
+                <p className='my-3' style={{ color: "gray", fontStyle: "italic" }}>by: {name}</p>
                 <p>{comment.slice(0, 100)}</p>
 
                 <Link to={`/blogs/${_id}`}>
